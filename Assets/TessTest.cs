@@ -75,7 +75,7 @@ public class TessTest : MonoBehaviour
         ResetVertices();
     }
 
-    Vector3 cameraPos = new Vector3(0, 0, -6);
+    Vector3 cameraPos = new Vector3(0, 0, -10);
     void Update()
     {
         cameraPos.z += Input.GetAxis("Mouse ScrollWheel") * 2f;
