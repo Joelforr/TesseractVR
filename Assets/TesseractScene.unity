@@ -285,16 +285,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 643376654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24ce5e81d11aec44da20fe7e6aa80b8a, type: 3}
+  m_Script: {fileID: 11500000, guid: a73c5a0ce7259a840904ed2e41b4a7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalVerts: []
-  rotatedVerts: []
-  originalTris: []
+  p: []
   verts: []
   tris: 
   uvs: []
-  rotationOrder: 
 --- !u!23 &643376656
 MeshRenderer:
   m_ObjectHideFlags: 0

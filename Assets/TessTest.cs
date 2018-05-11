@@ -203,7 +203,7 @@ public class TessTest : MonoBehaviour
                 uv0,uv1,uv2
             }
         );
-        mesh.uv = uvs.ToArray();
+        //mesh.uv = uvs.ToArray();
 
         mesh.RecalculateNormals();
         mesh.RecalculateBounds();
