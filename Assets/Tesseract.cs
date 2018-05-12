@@ -9,7 +9,6 @@ public class Tesseract : MonoBehaviour {
      private Color currentColor;
      private Material materialColored;
 
-
 	// Use this for initialization
 	void Start () {
 		Debug.Log("Start... :)");
