@@ -51,6 +51,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\HoritzontalMove.cs" />
+     <Compile Include="Assets\Tersseract2.cs" />
      <Compile Include="Assets\Tesseract.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>/Users/catherineshing/Desktop/graphics/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

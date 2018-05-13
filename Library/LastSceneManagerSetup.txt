@@ -1,1 +1,4 @@
-sceneSetups: []
+sceneSetups:
+- path: Assets/Tesseract.unity
+  isLoaded: 1
+  isActive: 1
