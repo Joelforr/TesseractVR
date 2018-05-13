@@ -27,9 +27,8 @@ public class Tesseract : MonoBehaviour {
              materialColored.color = currentColor = ObjectColor;
              this.GetComponent<Renderer>().material = materialColored;
          }
-		// Rigidbody rb = GetComponent<Rigidbody>();
-		// rb.AddForce(Vector3.up * 10f);
-		transform.Rotate(Vector3.right * 10f);
-		transform.Rotate(Vector3.up, Time.deltaTime, Space.World);
+
+ 		transform.Rotate(Vector3.right * 10f);
+  		transform.Rotate(Vector3.up, Time.deltaTime, Space.World);
 	}
 }

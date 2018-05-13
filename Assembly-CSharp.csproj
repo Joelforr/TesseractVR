@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{8D334EAB-96D6-447A-0A15-C6659CDA186D}</ProjectGuid>
+    <ProjectGuid>{C2994F15-D2F5-80D8-10A2-E2B8904FAAD2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -54,11 +54,11 @@
      <Compile Include="Assets\HoritzontalMove.cs" />
      <Compile Include="Assets\Tersseract2.cs" />
      <Compile Include="Assets\Tesseract.cs" />
- <Reference Include="UnityEditor.StandardEvents">
- <HintPath>/Users/catherineshing/Desktop/graphics/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
- </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>/Users/catherineshing/Desktop/graphics/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>/Users/catherineshing/Desktop/TesseractVR/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.StandardEvents">
+ <HintPath>/Users/catherineshing/Desktop/TesseractVR/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
