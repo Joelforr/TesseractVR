@@ -4,4 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/TesseractScene.unity
+    guid: 90b010c7982c0da41b3529aa7c92db61
+  m_configObjects: {}
