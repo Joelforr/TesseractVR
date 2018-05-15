@@ -40,3 +40,5 @@ public class perlin : MonoBehaviour {
         return Mathf.PerlinNoise(xPos, yPos);
     }
 }
+
+//inputs points to a grid and then we are mainuplating the height with perlin noise
