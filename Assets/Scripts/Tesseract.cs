@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
-using UnityEditor;
+
 using System.Collections;
 using System.Collections.Generic;
 using System;
 
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
-
-
 
 public class Tesseract : MonoBehaviour {
     MeshFilter meshFilter;
@@ -16,9 +14,12 @@ public class Tesseract : MonoBehaviour {
     public Vector4[] p;                     //The vertex points for a tesseract
     Matrix4x4[] m = new Matrix4x4[6];
 
-    public List<Vector3> verts;
-    public List<int> tris;
-    public List<Vector2> uvs;
+    public float[] r = new float[6];
+    
+
+    List<Vector3> verts;
+    List<int> tris;
+
 
 
 
@@ -34,7 +35,8 @@ public class Tesseract : MonoBehaviour {
         }
 
         p = new Vector4[]{
-            
+           /* 
+            //Set for Z (stationary rotation)
             new Vector4(1,1,1,1),               //A
             new Vector4(1,1,1,-1),              //B
             new Vector4(1,1,-1,1),              //C
@@ -51,8 +53,9 @@ public class Tesseract : MonoBehaviour {
             new Vector4(-1,-1,1,-1),            //N
             new Vector4(-1,-1,-1,1),            //O
             new Vector4(-1,-1,-1,-1),            //P
-   
+            */
 
+            //Set for W
             new Vector4(0,0,0,0),               //A
             new Vector4(1,0,0,0),               //B
             new Vector4(1,0,1,0),               //C
@@ -75,18 +78,21 @@ public class Tesseract : MonoBehaviour {
         for (int i = 0; i < 6; i++)
         {
             m[i] = Matrix4x4.identity;
-            float c = Mathf.Cos(.01f);
-            float s = Mathf.Sin(.01f);
+            float c =  Mathf.Cos(.01f);
+            float s =  Mathf.Sin(.01f);
             m[i][X[1, i]] = c;
             m[i][X[2, i]] = c;
             m[i][X[0, i]] = s;
             m[i][X[0, i] % 4 * 4 + X[0, i] / 4] = -s;
         }
+
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-        DrawTesseract();
+
+         DrawTesseract();
 	}
 
     void DrawTesseract()
@@ -94,8 +100,8 @@ public class Tesseract : MonoBehaviour {
         mesh.Clear();
         verts = new List<Vector3>();
         tris = new List<int>();
-        uvs = new List<Vector2>();
 
+ 
         for (int i = 0; i < 16; i++) foreach (Matrix4x4 x in m) p[i] = x * p[i];
 
         int[] F = { 0, 1, 9, 11, 10, 8, 9, 13, 15, 11, 3, 7, 15, 14, 10, 2, 6, 14, 12, 8, 0, 4, 12, 13, 5, 7, 6, 4, 5, 1, 3, 2, 0 };
@@ -126,8 +132,8 @@ public class Tesseract : MonoBehaviour {
 
         for (int i = 0; i < 24; i++)
         {
-            CreatePlane(p[Z[i,0]], p[Z[i, 1]], p[Z[i, 2]], p[Z[i, 3]]);
-            //CreatePlane(p[W[i, 0]], p[W[i, 1]], p[W[i, 2]], p[W[i, 3]]);
+            //CreatePlane(p[Z[i,0]], p[Z[i, 1]], p[Z[i, 2]], p[Z[i, 3]]);
+            CreatePlane(p[W[i, 0]], p[W[i, 1]], p[W[i, 2]], p[W[i, 3]]);
         }
 
     }
@@ -135,11 +141,6 @@ public class Tesseract : MonoBehaviour {
 
     void CreatePlane(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3)
     {
-
-        Vector2 uv0 = Vector2.zero;
-        Vector2 uv1 = Vector2.zero;
-        Vector2 uv2 = Vector2.zero;
-
 
         List<Vector3> newVerts = new List<Vector3>(){
             p0,p2,p1,
@@ -159,23 +160,7 @@ public class Tesseract : MonoBehaviour {
 
         mesh.SetTriangles(tris.ToArray(), 0);
 
-
-        uv0 = new Vector2(0, 0);
-        uv1 = new Vector2(1, 0);
-        uv2 = new Vector2(0.5f, 1);
-
-        uvs.AddRange(
-            new List<Vector2>(){
-                uv0,uv1,uv2,
-                uv0,uv1,uv2,
-                uv0,uv1,uv2,
-                uv0,uv1,uv2
-            }
-        );
-        //mesh.uv = uvs.ToArray();
-
         mesh.RecalculateNormals();
         mesh.RecalculateBounds();
-        MeshUtility.Optimize(mesh);
     }
 }
